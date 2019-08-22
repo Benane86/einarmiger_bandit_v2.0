@@ -12,6 +12,7 @@ namespace einarmiger_bandit
     {
         static void Main(string[] args)
         {
+            Console.Title = "Einarmiger Bandit V0.5";
             int einsatz;
             int betrag;
             int gewinn;
