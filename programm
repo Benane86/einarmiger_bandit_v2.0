@@ -25,8 +25,8 @@ namespace einarmiger_bandit
             Console.Clear();
             Console.WriteLine("Guthaben: {0}", einsatz);
             Console.WriteLine("* = Freispiel");
-            Console.WriteLine("# = +1 Guthaben");
-            Console.WriteLine("x = +2 Guthaben");
+            Console.WriteLine("# = + {0}", betrag);
+            Console.WriteLine("x = + {0}", betrag + betrag);
             Console.WriteLine("");
             Console.WriteLine("");
             Console.WriteLine("");
@@ -37,24 +37,24 @@ namespace einarmiger_bandit
             Console.Clear();
             Thread.Sleep(10);
             Random rnd1 = new Random();
-            int random1 = rnd1.Next(3);
+            int random1 = rnd1.Next(1,4);
             Thread.Sleep(111);
             string symbol1 = Symbol(random1);
 
             Random rnd4 = new Random();
-            int random4 = rnd4.Next(3);
+            int random4 = rnd4.Next(1,4);
             Thread.Sleep(331);
             string symbol4 = Symbol(random4);
 
             Random rnd7 = new Random();
-            int random7 = rnd7.Next(3);
+            int random7 = rnd7.Next(1,4);
             Thread.Sleep(331);
             string symbol7 = Symbol(random7);
 
             Console.WriteLine("Guthaben: {0}", einsatz);
             Console.WriteLine("* = Freispiel");
-            Console.WriteLine("# = 1 x Einsatz");
-            Console.WriteLine("x = 2 x Einsatz");
+            Console.WriteLine("# = + {0}", betrag);
+            Console.WriteLine("x = + {0}", betrag + betrag);
             Console.WriteLine("");
             Console.WriteLine("| {0} |   |   |", symbol4);
             Console.WriteLine("| {0} |   |   |", symbol1);
@@ -62,24 +62,24 @@ namespace einarmiger_bandit
             Thread.Sleep(1110);
             Console.Clear();
             Random rnd2 = new Random();
-            int random2 = rnd2.Next(3);
+            int random2 = rnd2.Next(1,4);
             Thread.Sleep(221);
             string symbol2 = Symbol(random2);
 
             Random rnd5 = new Random();
-            int random5 = rnd5.Next(3);
+            int random5 = rnd5.Next(1,4);
             Thread.Sleep(331);
             string symbol5 = Symbol(random5);
 
             Random rnd8 = new Random();
-            int random8 = rnd8.Next(3);
+            int random8 = rnd8.Next(1,4);
             Thread.Sleep(331);
             string symbol8 = Symbol(random8);
 
             Console.WriteLine("Guthaben: {0}", einsatz);
             Console.WriteLine("* = Freispiel");
-            Console.WriteLine("# = +1 Guthaben");
-            Console.WriteLine("x = +2 Guthaben");
+            Console.WriteLine("# = + {0}", betrag);
+            Console.WriteLine("x = + {0}", betrag + betrag);
             Console.WriteLine("");
             Console.WriteLine("| {0} | {1} |   |", symbol4, symbol5);
             Console.WriteLine("| {0} | {1} |   |", symbol1, symbol2);
@@ -87,25 +87,25 @@ namespace einarmiger_bandit
             Thread.Sleep(1110);
             Console.Clear();
             Random rnd3 = new Random();
-            int random3 = rnd3.Next(3);
+            int random3 = rnd3.Next(1,4);
             Thread.Sleep(331);
             string symbol3 = Symbol(random3);
 
              Random rnd6 = new Random();
-            int random6 = rnd6.Next(3);
+            int random6 = rnd6.Next(1,4);
             Thread.Sleep(331);
             string symbol6 = Symbol(random6);
 
             Random rnd9 = new Random();
-            int random9 = rnd9.Next(3);
+            int random9 = rnd9.Next(1,4);
             Thread.Sleep(331);
             string symbol9 = Symbol(random9);
 
             // Console.WriteLine("{0} {1} {2}", random1, random2, random3);
             Console.WriteLine("Guthaben: {0}", einsatz);
             Console.WriteLine("* = Freispiel");
-            Console.WriteLine("# = +1 Guthaben");
-            Console.WriteLine("x = +2 Guthaben");
+            Console.WriteLine("# = + {0}", betrag);
+            Console.WriteLine("x = + {0}", betrag + betrag);
             Console.WriteLine("");
             Console.WriteLine("| {0} | {1} | {2} |", symbol4, symbol5, symbol6);
             Console.WriteLine("| {0} | {1} | {2} |", symbol1, symbol2, symbol3);
@@ -120,9 +120,9 @@ namespace einarmiger_bandit
             }
             if (rndvergleich1 == random3)
             {
-                einsatz = (einsatz + betrag) + (betrag * random1);
                 Console.WriteLine("");
-                Console.WriteLine("Gewonnen + {0}",  betrag + (betrag * random1));
+                Console.WriteLine("Gewonnen + {0}", (betrag * random1) - betrag);
+                einsatz = einsatz  + (betrag * random1);
                 SystemSounds.Beep.Play();
             }
             else
@@ -137,9 +137,9 @@ namespace einarmiger_bandit
             }
             if (rndvergleich2 == random6)
             {
-                einsatz = (einsatz + betrag) + (betrag * random4);
                 Console.WriteLine("");
-                Console.WriteLine("Gewonnen + {0}", betrag + (betrag * random4));
+                Console.WriteLine("Gewonnen + {0}", (betrag * random4) - betrag);
+                einsatz = einsatz + (betrag * random4);
                 SystemSounds.Beep.Play();
             }
             else
@@ -154,9 +154,9 @@ namespace einarmiger_bandit
             }
             if (rndvergleich3 == random9)
             {
-                einsatz = (einsatz + betrag) + (betrag * random7);
                 Console.WriteLine("");
-                Console.WriteLine("Gewonnen + {0}", betrag + (betrag * random7));
+                Console.WriteLine("Gewonnen + {0}", (betrag * random7) - betrag);
+                einsatz = einsatz + (betrag * random7);
                 SystemSounds.Beep.Play();
             }
             else
@@ -194,19 +194,22 @@ namespace einarmiger_bandit
         }
         static string Symbol(int a)
         {
-            if (a == 0)
+            if (a == 1)
             {
                 return "*";
             }
-            else if (a == 1)
+            else if (a == 2)
             {
                 return "#";
             }
-            else
+            else if (a == 3)
             {
                 return "x";
             }
-
+            else
+            {
+                return "?";
+            }
 
         }
 
