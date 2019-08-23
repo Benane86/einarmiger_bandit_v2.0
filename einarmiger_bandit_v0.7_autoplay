@@ -113,10 +113,7 @@ namespace einarmiger_bandit
                 Console.WriteLine("| {0} | {1} | {2} |", symbol4, symbol5, symbol6);
                 Console.WriteLine("| {0} | {1} | {2} |", symbol1, symbol2, symbol3);
                 Console.WriteLine("| {0} | {1} | {2} |", symbol7, symbol8, symbol9);
-                ClearLine();
-                ClearLine();
-                ClearLine();
-                Thread.Sleep(1110);
+
                 int rndvergleich1 = 99;
                 if (random1 == random2)
                 {
@@ -176,6 +173,7 @@ namespace einarmiger_bandit
 
                 if (einsatz > 0)
                 {
+                    Thread.Sleep(1100);
                     Console.Clear();
                     goto sprung;
                 }
