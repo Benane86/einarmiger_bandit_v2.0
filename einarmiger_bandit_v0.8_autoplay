@@ -1,0 +1,489 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Threading;
+using System.Media;
+
+namespace einarmiger_bandit
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.Title = "Einarmiger Bandit V0.8v mit autoplay";
+            int einsatz;
+            int betrag;
+            int gewinn;
+            int autoplay;
+            Console.WriteLine("Willkommen zum Einarmigen Bandit");
+            Console.WriteLine("Wie viel Geld willst du Einwerfen?");
+            einsatz = int.Parse(Console.ReadLine());
+            Console.Clear();
+            Console.WriteLine("Wie hoch ist dein Einsatz?");
+            betrag = int.Parse(Console.ReadLine());
+            Console.Clear();
+            Console.WriteLine("Autoplay aktivieren?");
+            Console.WriteLine("1 = Ja");
+            Console.WriteLine("2 = Nein");
+            autoplay = int.Parse(Console.ReadLine());
+            Console.Clear();
+            if (autoplay == 1)
+            {
+                Console.WriteLine("Guthaben: {0}", einsatz);
+                Console.WriteLine("* = Freispiel");
+                Console.WriteLine("# = + {0}", betrag);
+                Console.WriteLine("x = + {0}", betrag + betrag);
+                Console.WriteLine("");
+                Console.WriteLine("");
+                Console.WriteLine("");
+
+            sprung:
+                einsatz = einsatz - betrag;
+                Console.Clear();
+                Thread.Sleep(10);
+                Random rnd1 = new Random();
+                int random1 = rnd1.Next(1, 4);
+                Thread.Sleep(111);
+                string symbol1 = Symbol(random1);
+
+                Random rnd4 = new Random();
+                int random4 = rnd4.Next(1, 4);
+                Thread.Sleep(331);
+                string symbol4 = Symbol(random4);
+
+                Random rnd7 = new Random();
+                int random7 = rnd7.Next(1, 4);
+                Thread.Sleep(331);
+                string symbol7 = Symbol(random7);
+
+                Console.WriteLine("Guthaben: {0}", einsatz);
+                Console.WriteLine("* = Freispiel");
+                Console.WriteLine("# = + {0}", betrag);
+                Console.WriteLine("x = + {0}", betrag + betrag);
+                Console.WriteLine("");
+                Console.WriteLine("|   |   |   |", symbol4);
+                Console.WriteLine("|   |   |   |", symbol1);
+                Console.WriteLine("| {0} |   |   |", symbol7);
+                Thread.Sleep(300);
+                ClearLine();
+                ClearLine();
+                ClearLine();
+                Console.WriteLine("|   |   |   |", symbol4);
+                Console.WriteLine("| {0} |   |   |", symbol1);
+                Console.WriteLine("| {0} |   |   |", symbol7);
+                Thread.Sleep(300);
+                ClearLine();
+                ClearLine();
+                ClearLine();
+                Console.WriteLine("| {0} |   |   |", symbol4);
+                Console.WriteLine("| {0} |   |   |", symbol1);
+                Console.WriteLine("| {0} |   |   |", symbol7);
+                Thread.Sleep(10);
+
+                Random rnd2 = new Random();
+                int random2 = rnd2.Next(1, 4);
+                Thread.Sleep(221);
+                string symbol2 = Symbol(random2);
+
+                Random rnd5 = new Random();
+                int random5 = rnd5.Next(1, 4);
+                Thread.Sleep(331);
+                string symbol5 = Symbol(random5);
+
+                Random rnd8 = new Random();
+                int random8 = rnd8.Next(1, 4);
+                Thread.Sleep(331);
+                string symbol8 = Symbol(random8);
+
+                ClearLine();
+                ClearLine();
+                ClearLine();
+
+                Console.WriteLine("| {0} |   |   |", symbol4, symbol5);
+                Console.WriteLine("| {0} |   |   |", symbol1, symbol2);
+                Console.WriteLine("| {0} | {1} |   |", symbol7, symbol8);
+                Thread.Sleep(300);
+                ClearLine();
+                ClearLine();
+                ClearLine();
+                Console.WriteLine("| {0} |   |   |", symbol4, symbol5);
+                Console.WriteLine("| {0} | {1} |   |", symbol1, symbol2);
+                Console.WriteLine("| {0} | {1} |   |", symbol7, symbol8);
+                Thread.Sleep(300);
+                ClearLine();
+                ClearLine();
+                ClearLine();
+                Console.WriteLine("| {0} | {1} |   |", symbol4, symbol5);
+                Console.WriteLine("| {0} | {1} |   |", symbol1, symbol2);
+                Console.WriteLine("| {0} | {1} |   |", symbol7, symbol8);
+
+                Thread.Sleep(10);
+
+
+                Random rnd3 = new Random();
+                int random3 = rnd3.Next(1, 4);
+                Thread.Sleep(331);
+                string symbol3 = Symbol(random3);
+
+                Random rnd6 = new Random();
+                int random6 = rnd6.Next(1, 4);
+                Thread.Sleep(331);
+                string symbol6 = Symbol(random6);
+
+                Random rnd9 = new Random();
+                int random9 = rnd9.Next(1, 4);
+                Thread.Sleep(331);
+                string symbol9 = Symbol(random9);
+
+                // Console.WriteLine("{0} {1} {2}", random1, random2, random3);
+                ClearLine();
+                ClearLine();
+                ClearLine();
+
+                Console.WriteLine("| {0} | {1} |   |", symbol4, symbol5, symbol6);
+                Console.WriteLine("| {0} | {1} |   |", symbol1, symbol2, symbol3);
+                Console.WriteLine("| {0} | {1} | {2} |", symbol7, symbol8, symbol9);
+                Thread.Sleep(300);
+                ClearLine();
+                ClearLine();
+                ClearLine();
+                Console.WriteLine("| {0} | {1} |   |", symbol4, symbol5, symbol6);
+                Console.WriteLine("| {0} | {1} | {2} |", symbol1, symbol2, symbol3);
+                Console.WriteLine("| {0} | {1} | {2} |", symbol7, symbol8, symbol9);
+                Thread.Sleep(300);
+                ClearLine();
+                ClearLine();
+                ClearLine();
+                Console.WriteLine("| {0} | {1} | {2} |", symbol4, symbol5, symbol6);
+                Console.WriteLine("| {0} | {1} | {2} |", symbol1, symbol2, symbol3);
+                Console.WriteLine("| {0} | {1} | {2} |", symbol7, symbol8, symbol9);
+
+
+                int rndvergleich1 = 99;
+                if (random1 == random2)
+                {
+                    rndvergleich1 = random1;
+                }
+                if (rndvergleich1 == random3)
+                {
+                    Console.WriteLine("");
+                    Console.WriteLine("Gewonnen + {0}", (betrag * random1) - betrag);
+                    einsatz = einsatz + (betrag * random1);
+                    SystemSounds.Beep.Play();
+                }
+                else
+                {
+                    einsatz = einsatz;
+                }
+
+                int rndvergleich2 = 99;
+                if (random4 == random5)
+                {
+                    rndvergleich2 = random4;
+                }
+                if (rndvergleich2 == random6)
+                {
+                    Console.WriteLine("");
+                    Console.WriteLine("Gewonnen + {0}", (betrag * random4) - betrag);
+                    einsatz = einsatz + (betrag * random4);
+                    SystemSounds.Beep.Play();
+                }
+                else
+                {
+                    einsatz = einsatz;
+                }
+
+                int rndvergleich3 = 99;
+                if (random7 == random8)
+                {
+                    rndvergleich3 = random7;
+                }
+                if (rndvergleich3 == random9)
+                {
+                    Console.WriteLine("");
+                    Console.WriteLine("Gewonnen + {0}", (betrag * random7) - betrag);
+                    einsatz = einsatz + (betrag * random7);
+                    SystemSounds.Beep.Play();
+                }
+                else
+                {
+                    einsatz = einsatz;
+                }
+
+
+
+
+
+
+
+                if (einsatz > 0)
+                {
+                    Thread.Sleep(1100);
+                    Console.Clear();
+                    goto sprung;
+                }
+                else if (einsatz == 0)
+                {
+                    Console.WriteLine("");
+                    Console.WriteLine("Game Over");
+                    Console.ReadKey();
+                }
+                else if (einsatz < 0)
+                {
+                    Console.WriteLine("");
+                    Console.WriteLine("Game Over");
+                    Console.ReadKey();
+                }
+                Console.ReadKey();
+
+
+            }
+            else
+            {
+                Console.WriteLine("Guthaben: {0}", einsatz);
+                Console.WriteLine("* = Freispiel");
+                Console.WriteLine("# = + {0}", betrag);
+                Console.WriteLine("x = + {0}", betrag + betrag);
+                Console.WriteLine("");
+                Console.WriteLine("");
+                Console.WriteLine("");
+                Console.WriteLine("zum starten beliebige Taste drücken");
+                Console.ReadKey();
+            sprung:
+                einsatz = einsatz - betrag;
+                Console.Clear();
+                Thread.Sleep(10);
+                Random rnd1 = new Random();
+                int random1 = rnd1.Next(1, 4);
+                Thread.Sleep(111);
+                string symbol1 = Symbol(random1);
+
+                Random rnd4 = new Random();
+                int random4 = rnd4.Next(1, 4);
+                Thread.Sleep(331);
+                string symbol4 = Symbol(random4);
+
+                Random rnd7 = new Random();
+                int random7 = rnd7.Next(1, 4);
+                Thread.Sleep(331);
+                string symbol7 = Symbol(random7);
+
+                Console.WriteLine("Guthaben: {0}", einsatz);
+                Console.WriteLine("* = Freispiel");
+                Console.WriteLine("# = + {0}", betrag);
+                Console.WriteLine("x = + {0}", betrag + betrag);
+                Console.WriteLine("");
+                Console.WriteLine("|   |   |   |", symbol4);
+                Console.WriteLine("|   |   |   |", symbol1);
+                Console.WriteLine("| {0} |   |   |", symbol7);
+                Thread.Sleep(300);
+                ClearLine();
+                ClearLine();
+                ClearLine();
+                Console.WriteLine("|   |   |   |", symbol4);
+                Console.WriteLine("| {0} |   |   |", symbol1);
+                Console.WriteLine("| {0} |   |   |", symbol7);
+                Thread.Sleep(300);
+                ClearLine();
+                ClearLine();
+                ClearLine();
+                Console.WriteLine("| {0} |   |   |", symbol4);
+                Console.WriteLine("| {0} |   |   |", symbol1);
+                Console.WriteLine("| {0} |   |   |", symbol7);
+                Thread.Sleep(10);
+
+                Random rnd2 = new Random();
+                int random2 = rnd2.Next(1, 4);
+                Thread.Sleep(221);
+                string symbol2 = Symbol(random2);
+
+                Random rnd5 = new Random();
+                int random5 = rnd5.Next(1, 4);
+                Thread.Sleep(331);
+                string symbol5 = Symbol(random5);
+
+                Random rnd8 = new Random();
+                int random8 = rnd8.Next(1, 4);
+                Thread.Sleep(331);
+                string symbol8 = Symbol(random8);
+
+
+                ClearLine();
+                ClearLine();
+                ClearLine();
+
+                Console.WriteLine("| {0} |   |   |", symbol4, symbol5);
+                Console.WriteLine("| {0} |   |   |", symbol1, symbol2);
+                Console.WriteLine("| {0} | {1} |   |", symbol7, symbol8);
+                Thread.Sleep(300);
+                ClearLine();
+                ClearLine();
+                ClearLine();
+                Console.WriteLine("| {0} |   |   |", symbol4, symbol5);
+                Console.WriteLine("| {0} | {1} |   |", symbol1, symbol2);
+                Console.WriteLine("| {0} | {1} |   |", symbol7, symbol8);
+                Thread.Sleep(300);
+                ClearLine();
+                ClearLine();
+                ClearLine();
+                Console.WriteLine("| {0} | {1} |   |", symbol4, symbol5);
+                Console.WriteLine("| {0} | {1} |   |", symbol1, symbol2);
+                Console.WriteLine("| {0} | {1} |   |", symbol7, symbol8);
+
+                Thread.Sleep(10);
+                Random rnd3 = new Random();
+                int random3 = rnd3.Next(1, 4);
+                Thread.Sleep(331);
+                string symbol3 = Symbol(random3);
+
+                Random rnd6 = new Random();
+                int random6 = rnd6.Next(1, 4);
+                Thread.Sleep(331);
+                string symbol6 = Symbol(random6);
+
+                Random rnd9 = new Random();
+                int random9 = rnd9.Next(1, 4);
+                Thread.Sleep(331);
+                string symbol9 = Symbol(random9);
+
+                // Console.WriteLine("{0} {1} {2}", random1, random2, random3);
+
+                ClearLine();
+                ClearLine();
+                ClearLine();
+
+                Console.WriteLine("| {0} | {1} |   |", symbol4, symbol5, symbol6);
+                Console.WriteLine("| {0} | {1} |   |", symbol1, symbol2, symbol3);
+                Console.WriteLine("| {0} | {1} | {2} |", symbol7, symbol8, symbol9);
+                Thread.Sleep(300);
+                ClearLine();
+                ClearLine();
+                ClearLine();
+                Console.WriteLine("| {0} | {1} |   |", symbol4, symbol5, symbol6);
+                Console.WriteLine("| {0} | {1} | {2} |", symbol1, symbol2, symbol3);
+                Console.WriteLine("| {0} | {1} | {2} |", symbol7, symbol8, symbol9);
+                Thread.Sleep(300);
+                ClearLine();
+                ClearLine();
+                ClearLine();
+                Console.WriteLine("| {0} | {1} | {2} |", symbol4, symbol5, symbol6);
+                Console.WriteLine("| {0} | {1} | {2} |", symbol1, symbol2, symbol3);
+                Console.WriteLine("| {0} | {1} | {2} |", symbol7, symbol8, symbol9);
+                Console.WriteLine("");
+                Thread.Sleep(1110);
+                Console.WriteLine("beliebige Taste drücken");
+                int rndvergleich1 = 99;
+                if (random1 == random2)
+                {
+                    rndvergleich1 = random1;
+                }
+                if (rndvergleich1 == random3)
+                {
+                    Console.WriteLine("");
+                    Console.WriteLine("Gewonnen + {0}", (betrag * random1) - betrag);
+                    einsatz = einsatz + (betrag * random1);
+                    SystemSounds.Beep.Play();
+                }
+                else
+                {
+                    einsatz = einsatz;
+                }
+
+                int rndvergleich2 = 99;
+                if (random4 == random5)
+                {
+                    rndvergleich2 = random4;
+                }
+                if (rndvergleich2 == random6)
+                {
+                    Console.WriteLine("");
+                    Console.WriteLine("Gewonnen + {0}", (betrag * random4) - betrag);
+                    einsatz = einsatz + (betrag * random4);
+                    SystemSounds.Beep.Play();
+                }
+                else
+                {
+                    einsatz = einsatz;
+                }
+
+                int rndvergleich3 = 99;
+                if (random7 == random8)
+                {
+                    rndvergleich3 = random7;
+                }
+                if (rndvergleich3 == random9)
+                {
+                    Console.WriteLine("");
+                    Console.WriteLine("Gewonnen + {0}", (betrag * random7) - betrag);
+                    einsatz = einsatz + (betrag * random7);
+                    SystemSounds.Beep.Play();
+                }
+                else
+                {
+                    einsatz = einsatz;
+                }
+
+
+
+
+
+
+
+                if (einsatz > 0)
+                {
+                    Console.ReadKey();
+                    Console.Clear();
+                    goto sprung;
+                }
+                else if (einsatz == 0)
+                {
+                    Console.WriteLine("");
+                    Console.WriteLine("Game Over");
+                    Console.ReadKey();
+                }
+                else if (einsatz < 0)
+                {
+                    Console.WriteLine("");
+                    Console.WriteLine("Game Over");
+                    Console.ReadKey();
+                }
+                Console.ReadKey();
+
+
+            }
+        }
+
+        static string Symbol(int a)
+        {
+            if (a == 1)
+            {
+                return "*";
+            }
+            else if (a == 2)
+            {
+                return "#";
+            }
+            else if (a == 3)
+            {
+                return "x";
+            }
+            else
+            {
+                return "?";
+            }
+
+        }
+        public static void ClearLine()
+        {
+            Console.SetCursorPosition(0, Console.CursorTop - 1);
+            Console.Write(new string(' ', Console.WindowWidth));
+            Console.SetCursorPosition(0, Console.CursorTop - 1);
+        }
+
+
+
+    }
+
+}
